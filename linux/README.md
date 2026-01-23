@@ -1,5 +1,3 @@
-# devops-practice-labs
-
 I understan and learned all the topis of Linux which follows
 permissions
 user management
