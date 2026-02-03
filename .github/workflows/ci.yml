@@ -1,0 +1,20 @@
+name: Basic CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print system info
+        run: |
+          echo "Running on: $(uname -a)"
+          echo "Branch: $GITHUB_REF"
+
