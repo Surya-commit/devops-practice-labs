@@ -12,8 +12,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
-      - name: Intentional failure
+     
+      - name: Check repository structure
         run: |
-          echo "This will fail now"
-          exit 1
+          echo "Validating repository structure..."
+
+          for dir in linux shell ansible terraform docker k8s; do
+            if [ ! -d "$dir" ]; then
+              echo "ERROR: Directory $dir is missing"
+              exit 1
+            fi
+          done
+
+          echo "All required directories are present"
