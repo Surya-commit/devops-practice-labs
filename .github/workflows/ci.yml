@@ -12,9 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Print system info
+      
+      - name: Intentional failure
         run: |
-          echo "Running on: $(uname -a)"
-          echo "Branch: $GITHUB_REF"
-
+          echo "This will fail now"
+          exit 1
